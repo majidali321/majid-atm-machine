@@ -1,4 +1,6 @@
+#! /usr/bin/env node
 import inquirer from "inquirer";
+
 // initialize user balance pin and code
 let myBalance = 5000;
 let myPin = 4321;
@@ -14,9 +16,7 @@ let pinAnswer = await inquirer.prompt([
 ])
 if (pinAnswer.pin === myPin){
     console.log("loggin successfully")
-    }else{
-        console.log("plz enter correct pin")
-    }
+        
     let operations = await inquirer.prompt([
     {
         name:"check",
@@ -43,6 +43,11 @@ if (pinAnswer.pin === myPin){
 
     }else if (operations.check === "check balance"){
     console.log(`your balance is ${myBalance}`)
+}else {
+    console.log("plz enter valid pin")
 }
-
+}
+else{
+    console.log("invalid pin")
+}
 
